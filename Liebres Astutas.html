@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maxium-scale=1.0, minimum-scale=1.0">
+    <title>Liebres Astutas</title>
+    <style>
+        body {
+            background-color: rgb(43, 92, 16);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+            
+            
+        }
+
+        header {
+            background: rgb(40,201,61);
+            background: radial-gradient(circle, rgba(40,201,61,1) 26%, rgba(15,97,47,1) 74%);
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: rgb(106, 204, 25);
+            align-items: center;
+            padding: 10px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-izquierda button {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            margin: 3px;
+            border-radius: 30px;
+            font-size: 15px;
+            height: 35px;
+            border: none;
+        }
+
+        .nav-izquierda button:hover {
+            background: linear-gradient(120deg, rgb(17, 101, 17), rgb(135, 235, 137));
+        }
+
+        .nav-izquierda .extra-buttons {
+            display: none; 
+            position: absolute;
+            top: 5px;
+            left: 80px;
+            background-color: white;
+            padding: 0px;
+            font-size: 12px;
+        }
+
+        .nav-izquierda .extra-buttons a {
+            display: block;
+            text-align: left;
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            
+        }
+
+        .nav-izquierda .extra-buttons a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-izquierda .extra-buttons a:hover {
+            background-color: green;
+            color: white;
+        }
+
+        /* Botón Menú */
+        .menu-button {
+            display: none; /* Ocultar el botón en pantallas grandes */
+        }
+        .nav-derecha img {
+            height: 40px;
+            margin-left: 30px;
+            width: auto;
+        }
+
+        .icono-nav {
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .icono-nav:hover {
+            opacity: 0.5;
+        }
+
+        section {
+            display:grid;
+            justify-content:center;  
+            margin: 5px;
+            height: 750px;
+            
+        }
+
+        #seccion-info {
+            background: rgb(0,0,0);
+            background: linear-gradient(175deg, rgba(0,0,0,1) 19%, rgba(13,125,15,1) 59%, rgba(38,173,38,1) 75%);
+            
+        }
+
+        .secciones {
+            background: rgb(104,255,0);
+            background: linear-gradient(144deg, rgba(104,255,0,1) 23%, rgba(9,143,67,1) 34%, rgba(46,89,4,1) 72%, rgba(10,122,15,1) 73%);
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        textarea{
+            text-align: justify;
+            color: black;
+            padding:10px;
+            background-color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .iframe-container {
+            display: grid;
+            justify-content: center;
+        }
+
+        .iframe-container iframe {
+            max-width: 100%;
+            border: none;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #716e6e;
+            color: #fff;
+            justify-content: center;
+            
+            width: 100%;
+            display:grid;
+            
+        }
+        
+        #menu{
+            color: #ffffff;
+        }
+
+        a{
+            color: #fff;
+        }
+
+        .Galeria-de-personajes {
+            display: flex;
+            width: 65%;
+            height: 350px;
+            background: rgb(40,201,61);
+            background: linear-gradient(186deg, rgba(40,201,61,1) 21%, rgba(28,151,54,1) 43%, rgba(15,97,47,1) 74%);
+            margin: 10px;
+        }
+
+        .Galeria-de-personajes img{
+            width: 0px;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: .5s ease;
+        }
+
+        .Galeria-de-personajes img:hover{
+            cursor: pointer;
+            background: rgb(0,0,0);
+            background: linear-gradient(225deg, rgba(0,0,0,1) 19%, rgba(38,173,38,1) 75%);
+            width: 300px;
+            opacity: 1;
+            filter: contrast(120%);
+        }
+        
+        .responsive{
+            
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 100%;
+            
+        }
+
+        /* Estilos específicos para móviles */
+        @media screen and (max-width: 480px) {
+            .menu-button {
+        display: block; /* Mostrar el botón de menú */
+        }
+
+        .nav-izquierda button:not(.menu-button) {
+            display: none; /* Ocultar otros botones */
+        }
+
+        .nav-izquierda .extra-buttons.open {
+            display: block; /* Mostrar las opciones al hacer clic */
+            
+        }
+
+            
+        .Galeria-de-personajes {
+            display: flex;
+            width: 85%;
+            height: 200px;
+            margin: 5px;
+        }
+
+        .Galeria-de-personajes img{
+            width: 0px;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: .5s ease;
+        }
+
+        .Galeria-de-personajes img:hover{
+            width: 80px;
+        }
+        nav {
+            padding: 5px;
+        }
+        .nav-derecha img {
+            height: 30px;
+            margin-left: 10px;
+            margin-right: 5px;
+            width: auto;
+        }
+        h1 {
+            
+            font-size: 25px;
+        }
+        .nav-izquierda button {
+            border-radius: 30px;
+            font-size: 12px;
+            height: 30px;
+        
+        }
+        
+        .info table{
+            width: 50%;
+            padding: 10px;
+            margin: 10px;
+            
+        }
+        .info img{
+            width: 130px;
+            height: 130px;
+            padding: o;
+            margin-left:8% ;
+            
+        }
+        body{
+            padding: 0;
+        }
+        section{
+            
+            margin: 0;
+        }
+        
+        .secciones {
+            margin: 0;
+            background-color: #000000;
+        }
+        
+        .info-superior, .info-inferior {
+            font-size: 12px;
+        }
+        #menu{
+            display: none;
+        }
+        }
+
+        #grad4{
+            color: white;
+        }
+        table{
+            
+            align-items: center;
+            justify-items: center;
+        }
+
+        td{
+            align-items: center;
+            
+        }
+        
+        .contenedor {
+            display: flex; /* Activa flexbox */
+            width: 100%; /* Ocupa todo el ancho */
+            height: 500px; /* Define una altura para el contenedor, o usa '100vh' para el 100% del viewport height */
+            margin: 0;
+            padding: 0;
+        }
+
+        .personaje {
+            flex: 1; /* El personaje ocupa 1 parte del espacio disponible */
+        }
+
+        .personaje img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Evita que la imagen se deforme, ajustándola al contenedor */
+        }
+
+        .info-derecha {
+            flex: 1; /* La info derecha ocupa 1 parte del espacio disponible, igual que el personaje */
+            display: flex;
+            flex-direction: column; /* Coloca los divs uno encima del otro */
+        }
+
+        .info-superior, .info-inferior {
+            flex: 1; /* Cada div ocupa la mitad del espacio disponible dentro de info-derecha */
+            border: 1px solid black; /* Para visualizar los divs (opcional) */
+            padding: 10px;
+            box-sizing: border-box; /* Incluye el padding y el border en el ancho y alto */
+            background-color: #fff;
+            opacity: 0.8;
+            text-align: left;
+        }
+
+        .info-izquierda {
+            flex: 1;
+            display: flex;
+            flex-direction: column; /* Apila los divs verticalmente */
+        }
+
+        .imagen-ver {
+            width: 100%;
+            height: auto;
+            
+            /* Difuminado en la parte inferior */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+            
+            /* Asegura compatibilidad con navegadores */
+            -webkit-mask-size: cover;
+            mask-size: cover;
+        }
+
+        ul a{
+            color: #000000;
+        }
+        .enlace-info a{
+            color: rgb(54, 3, 3);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="responsive-pc">
+        <nav>
+            <div class="nav-izquierda">
+                <button onclick="location.href='index.html#personajes'" class="menu-button">Volver</button>
+                <button class="menu-button" onclick="toggleMenu()">Menú</button>
+                
+                <button onclick="location.href='index.html#personajes'">Volver principal</button>
+                <button onclick="location.href='#seccion1'">Facción</button>
+                <button onclick="location.href='#seccion2'">Anby</button>
+                <button onclick="location.href='#seccion3'">Nicole</button>
+                <button onclick="location.href='#seccion4'">Billy</button>
+                <button onclick="location.href='#seccion5'">Nekomiya</button>
+                
+                <div class="extra-buttons">
+                    <a href="#seccion2">Anby</a>
+                    <a href="#seccion3">Nicole</a>
+                    <a href="#seccion4">Billy</a>
+                    <a href="#seccion5">Nekomiya</a>
+                    
+                </div>
+            </div>
+        
+            <div class="nav-derecha">
+                <a href="https://zenless.hoyoverse.com/es-es/main" target="_blank"><img src="logo.1e072ee.png" class="imagen-logo" alt="Logo"></a>
+                <a href="https://www.facebook.com/ZZZ.Official.ES" target="_blank"><img src="facebook_2168281.png" class="icono-nav" alt="Facebook"></a>
+                <a href="https://www.instagram.com/zzz.official.en/" target="_blank"><img src="instagram_4494468.png" class="icono-nav" alt="Twitter"></a>
+                <a href="https://www.youtube.com/@ZZZ_Official" target="_blank"><img src="youtube_1384028.png" class="icono-nav" alt="Youtube"></a>
+            </div>
+            <script>
+            function toggleMenu() {
+                const menu = document.querySelector('.extra-buttons');
+                menu.classList.toggle('open');
+            }
+            function closeMenu() {
+                const menu = document.querySelector('.extra-buttons');
+                menu.classList.remove('open');
+            }
+            document.querySelectorAll('.extra-buttons a').forEach(option => {
+                option.addEventListener('click', closeMenu);
+            });
+            </script>
+        </nav>
+        
+        <header>
+            <h1><i><b>Liebres Astutas</b></i></h1>
+        </header>
+    </div>
+    <div class="responsive">
+        
+        <center>
+        <section class="Galeria-de-personajes">
+            <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102103/eecdce796ddabd20b80ab942dc49b754_2983546474985668407.png">
+            <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102183/62512dd00e05045759ec3521dddbdef5_6787742678529331246.png">
+            <img src="https://webstatic.hoyoverse.com/upload/op-public/2023/07/05/fb9112e3a564f716e9ca2c364031a9c4_8790235438281415197.png">
+            <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102427/14e9dbcd1e22c15efee2f6521755c4f0_5553025675552161365.png">
+            
+        </section>
+    </center>
+        
+            <section id="seccion-info">
+                <div id="seccion1">
+                    <center>
+                        <h2>Acerca de la Facción</h2>
+                        <div class="info">
+                            <table>
+                                <tr>
+                                    <td><img src="portada1.jpeg" width="420px" height="280px"></td>
+                                    <td><img src="logo Liebres Astutas.png" width="350px" height="280px"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                        <textarea cols="41" rows="4" style="overflow:auto; resize:none;">Liebres Astutas: ¡Donde haya dinero, ahi estaremos.</textarea>
+                        <br><br><br><br>
+                        
+                        
+                        <div class="enlace-info">
+                        <a href="https://youtu.be/2RkeBb2ooDI?si=rBcH61lvZsXe52u1" target="_blank" >Escena de introducción - Liebres Astutas<br>Zenless Zone Zero </a>
+                        <br><br><br><br>
+                        <a href="#"><h3>Menu</h3></a>
+                        </div>
+                        
+                    </center>
+                </div>
+            </section>
+        <section class="secciones" id="seccion2">
+            <br>
+            <div class="contenedor" >
+                <div class="personaje">
+                    <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102103/eecdce796ddabd20b80ab942dc49b754_2983546474985668407.png" alt="Personaje" class="imagen-ver">
+                    <h2 >Anby Damara</h2>
+                </div>
+                <div class="info-derecha">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	A<br><br>
+                            <b>Atributo: </b> Eléctrico<br><br>
+                            <b>Especialidad: </b> Atudir<br><br>
+                            <b>Facción: </b> Liebres Astutas<br><br>
+                            <b>Obtención: </b> Gacha / Gratis<br><br>
+                            <b>Estadística básica: </b> Impacto<br><br>
+                        </p>
+                    </div>
+                    <div class="info-inferior">    
+                            <ul>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436705#hl_2" target="_blank">Buil del personaje</a></li><br>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436705#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                                <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+        </section>
+        <section class="secciones" id="seccion3">
+            <br>
+            <div class="contenedor">
+                <div class="info-izquierda">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	A<br><br>
+                            <b>Atributo: </b> Éter<br><br>
+                            <b>Especialidad: </b> Apoyo<br><br>
+                            <b>Facción: </b> Liebres Astutas<br><br>
+                            <b>Obtención: </b> Gacha / Gratis<br><br>
+                            <b>Estadística básica: </b> Regeneración de energía<br><br>
+                        </p>
+                    </div>
+                <div class="info-inferior">   
+                    <ul>
+                        <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436888#hl_2" target="_blank">Buil del personaje</a></li><br>
+                        <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436888#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                        <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class="personaje">
+                <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102183/62512dd00e05045759ec3521dddbdef5_6787742678529331246.png" class="imagen-ver">
+                <h2>Nicole Damara</h2>
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+        </section>
+        <section class="secciones" id="seccion4">
+            <br>
+            <div class="contenedor">
+                <div class="personaje">
+                    <img src="https://webstatic.hoyoverse.com/upload/op-public/2023/07/05/fb9112e3a564f716e9ca2c364031a9c4_8790235438281415197.png" alt="Personaje" class="imagen-ver">
+                    <h2>Billy Kid</h2>
+                </div>
+                <div class="info-derecha">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	A<br><br>
+                            <b>Atributo: </b> Físico<br><br>
+                            <b>Especialidad: </b> Ataque<br><br>
+                            <b>Facción: </b> Liebres Astutas<br><br>
+                            <b>Obtención: </b> Gacha / Gratis<br><br>
+                            <b>Estadística básica: </b> Tasa Critica<br><br>
+                        </p>
+                    </div>
+                    <div class="info-inferior">    
+                            <ul>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436719#hl_2" target="_blank">Buil del personaje</a></li><br>
+                        <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436719#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                        <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+        </section>
+        
+        <section class="secciones" id="seccion5">
+            <br>
+            <div class="contenedor">
+                <div class="info-izquierda">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	S<br><br>
+                            <b>Atributo: </b> Físico<br><br>
+                            <b>Especialidad: </b> Ataque<br><br>
+                            <b>Facción: </b> Liebres Astutas<br><br>
+                            <b>Obtención: </b> Gacha<br><br>
+                            <b>Estadística básica: </b> Tasa Critica<br><br>
+                        </p>
+                    </div>
+                <div class="info-inferior">   
+                    <ul>
+                        <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436887#hl_2" target="_blank">Buil del personaje</a></li><br>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436887#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                                <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class="personaje">
+                <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102427/14e9dbcd1e22c15efee2f6521755c4f0_5553025675552161365.png" class="imagen-ver">
+                <h2>Nekomiya Mana</h2>
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+            
+        </section>
+        
+        <marquee>
+            <img src="https://i.ytimg.com/vi/Y2HTc9JZvwc/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAyVQnCW_TkQqAmkE_cg0tIvOs0pg" height="180px" width="250px">
+            <img src="https://i.ytimg.com/vi/te4eBXvQtQU/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGEwgZChlMA8=&rs=AOn4CLAEh2snXJqN2MTWH9F77YIWg398wg" height="180px" width="250px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9URrOkKkbuhwToNlGlxCU4wmoQ6_ylX9Yyw&s" height="180px" width="250px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCsSvqZl1vt0Ima9QInc6FadFnvbQR5qidA&s" height="180px" width="250px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLax20pI2CM4INpu9fk8eXY5jnehZi_8XSXg&s" height="180px" width="250px">
+            <img src="https://i.ytimg.com/vi/ILLiFFHEXvw/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBMkhpTeW_Vu01rTAm1Wrr7dqixRA" height="180px" width="200px">
+        </marquee>
+        
+    </div>
+</body>
+<footer class="responsive-pc">
+    <center>
+        
+    <p>
+        
+        <a href="https://www.facebook.com/share/1AayJJ8HzY/" target="_blank">
+            <img src="facebook_2168281.png" alt="Icono de Bogdan Rosu" class="icono-nav">
+        </a>
+        <a href="https://www.instagram.com/wwox.2i/profilecard/?igsh=ZHNraWt0a2piOXVh" target="_blank">
+            <img src="instagram_4494468.png" alt="Icono de riajulislam" class="icono-nav">
+        </a>
+        <a href="https://youtube.com/@henrybrandnmaydanavallejs8682?si=Q8XI_P7FgXuzpyYa" target="_blank">
+            <img src="youtube_1384028.png" alt="Icono de Freepik" class="icono-nav">
+        </a>
+        <br>
+        &copy; 2024 Página de Henry Maydana. Todos los derechos reservados.</p>
+</center>
+</footer>
+</html>

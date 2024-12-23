@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maxium-scale=1.0, minimum-scale=1.0">
+    <title>Servicios Domesticos Victoria</title>
+    <style>
+        
+        
+        body {
+            background-color: rgb(59, 45, 70);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+            
+            
+        }
+
+        header {
+            color: black;
+            background: rgb(182,121,187);
+            background: radial-gradient(circle, rgba(182,121,187,1) 28%, rgba(34,7,116,1) 53%);
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        h1 {
+            margin: 0;
+            color: #fff;
+        }
+
+        nav {
+    background-color: rgb(90, 49, 173);
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Botones de la sección izquierda */
+.nav-izquierda button {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 35px;
+    border: none;
+}
+
+.nav-izquierda button:hover {
+    background: linear-gradient(120deg, rgb(68, 54, 128), rgb(112, 109, 147));
+    color: #fff;
+}
+
+/* Opciones desplegables */
+.nav-izquierda .extra-buttons {
+    display: none; /* Ocultar por defecto */
+    position: absolute;
+    top: 5px;
+    left: 80px;
+    background-color: white;
+    padding: 0px;
+    font-size: 12px;
+}
+
+.nav-izquierda .extra-buttons a {
+    display: block;
+    text-align: left;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+.nav-izquierda .extra-buttons a:last-child {
+    border-bottom: none;
+}
+
+.nav-izquierda .extra-buttons a:hover {
+    background-color: orange;
+    color: white;
+}
+
+/* Botón Menú */
+.menu-button {
+    display: none; /* Ocultar el botón en pantallas grandes */
+}
+.nav-derecha img {
+    height: 40px;
+    margin-left: 30px;
+    width: auto;
+}
+
+.icono-nav {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.icono-nav:hover {
+    opacity: 0.5;
+}
+
+        .carrusel {
+            width: 500px; /* Ancho del carrusel (ajusta según la imagen) */
+            height: 300px; /* Alto del carrusel (ajusta según la imagen) */
+            
+            overflow: hidden; /* Oculta las imágenes que no se ven */
+        }
+        .carrusel-contenedor {
+            width: calc(500px * 5); /* Ancho total del contenedor de imágenes (ancho imagen * num imagenes)*/
+            height: 300px;
+            display: flex;
+            animation: desplazamiento 20s linear infinite; /* Animación */
+        }
+        .carrusel-contenedor img {
+            width: 500px;
+            height: 300px;
+        
+        }
+        @keyframes desplazamiento {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); } /* Tiempo que se muestra la primera imagen*/
+            25% { transform: translateX(-500px); } /* Transición a la segunda imagen*/
+            40% { transform: translateX(-500px); } /* Tiempo que se muestra la segunda imagen*/
+            45% { transform: translateX(-1000px); }
+            60% { transform: translateX(-1000px); }
+            65% { transform: translateX(-1500px); }
+            80% { transform: translateX(-1500px); }
+            85% { transform: translateX(-2000px); }
+            100% { transform: translateX(-2000px); }
+        }
+        /* Estilos de las secciones */
+        section {
+            display:grid;
+            justify-content:center;  
+            margin: 5px;
+            height: 750px;
+            
+        }
+       
+        
+
+        #seccion-info {
+            background: rgb(0,0,0);
+            background: linear-gradient(166deg, rgba(0,0,0,1) 28%, rgba(43,16,116,1) 41%, rgba(150,129,208,1) 62%);
+            
+        }
+
+        .secciones {
+            background: rgb(193,179,199);
+            background: linear-gradient(144deg, rgba(193,179,199,1) 27%, rgba(85,67,108,1) 28%, rgba(137,74,139,1) 73%, rgba(34,27,59,1) 74%);
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+        h2 {
+            text-align: center;
+          
+        }
+
+        textarea{
+            text-align: justify;
+            color: black;
+            padding:10px;
+            background-color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+        }
+
+        .iframe-container {
+            display: grid;
+            justify-content: center;
+           
+        }
+
+        .iframe-container iframe {
+            max-width: 100%;
+            border: none;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #716e6e;
+            color: #fff;
+            justify-content: center;
+            
+            width: 100%;
+            display:grid;
+            
+        }
+        
+        #menu{
+            color: #ffffff;
+        }
+        a{
+            color: #fff;
+           
+        }
+        .Galeria-de-personajes {
+        display: flex;
+        width: 65%;
+        height: 350px;
+        background: rgb(0,0,0);
+        background: linear-gradient(36deg, rgba(0,0,0,1) 28%, rgba(43,16,116,1) 41%, rgba(150,129,208,1) 62%);
+        margin: 10px;
+        }
+        .Galeria-de-personajes img{
+        width: 0px;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: 0.9;
+        transition: .5s ease;
+        }
+        .Galeria-de-personajes img:hover{
+        cursor: pointer;
+        background: rgb(0,0,0);
+        background: linear-gradient(207deg, rgba(0,0,0,1) 18%, rgba(80,7,199,1) 61%);
+        width: 300px;
+        opacity: 1;
+        filter: contrast(120%);
+        }
+        
+        .responsive{
+            
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 100%;
+            
+        }
+
+        /* Estilos específicos para móviles */
+        @media screen and (max-width: 480px) {
+            .menu-button {
+        display: block; /* Mostrar el botón de menú */
+        
+    }
+
+    .nav-izquierda button:not(.menu-button) {
+        display: none; /* Ocultar otros botones */
+    }
+
+    .nav-izquierda .extra-buttons.open {
+        display: block; /* Mostrar las opciones al hacer clic */
+        
+    }
+
+            
+            .Galeria-de-personajes {
+            display: flex;
+            width: 85%;
+            height: 200px;
+            margin: 5px;
+            }
+            .Galeria-de-personajes img{
+            width: 0px;
+            flex-grow: 1;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: .5s ease;
+            }
+            .Galeria-de-personajes img:hover{
+            width: 80px;
+        }
+        nav {
+        padding: 5px;
+        }
+        .nav-derecha img {
+        height: 30px;
+        margin-left: 10px;
+        margin-right: 5px;
+        width: auto;
+        }
+        h1 {
+            
+            font-size: 25px;
+        }
+        .nav-izquierda button {
+        border-radius: 30px;
+        font-size: 12px;
+        height: 30px;
+        
+        }
+        
+        .info table{
+            width: 50%;
+            padding: 10px;
+            margin: 10px;
+            
+        }
+        .info img{
+            width: 130px;
+            height: 130px;
+            padding: o;
+            margin-left:8% ;
+            
+        }
+        body{
+            padding: 0;
+        }
+        section{
+            
+            margin: 0;
+        }
+        
+        .secciones {
+            margin: 0;
+            background-color: #000000;
+        }
+        
+        .info-superior, .info-inferior {
+            font-size: 12px;
+        }
+        #menu{
+            display: none;
+        }
+        
+
+
+    }
+    #grad4{
+        color: white;
+    }
+        table{
+            
+            align-items: center;
+            justify-items: center;
+            
+            
+        }
+        td{
+            align-items: center;
+            
+        }
+        
+        
+        .contenedor {
+  display: flex; /* Activa flexbox */
+  width: 100%; /* Ocupa todo el ancho */
+  height: 500px; /* Define una altura para el contenedor, o usa '100vh' para el 100% del viewport height */
+  margin: 0;
+  padding: 0;
+  
+
+}
+
+.personaje {
+  flex: 1; /* El personaje ocupa 1 parte del espacio disponible */
+}
+
+.personaje img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Evita que la imagen se deforme, ajustándola al contenedor */
+}
+
+.info-derecha {
+  flex: 1; /* La info derecha ocupa 1 parte del espacio disponible, igual que el personaje */
+  display: flex;
+  flex-direction: column; /* Coloca los divs uno encima del otro */
+}
+
+.info-superior, .info-inferior {
+  flex: 1; /* Cada div ocupa la mitad del espacio disponible dentro de info-derecha */
+  border: 1px solid black; /* Para visualizar los divs (opcional) */
+  padding: 10px;
+  box-sizing: border-box; /* Incluye el padding y el border en el ancho y alto */
+  background-color: #fff;
+  opacity: 0.8;
+  text-align: left;
+}
+
+
+.info-izquierda {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Apila los divs verticalmente */
+}
+
+
+
+.imagen-ver {
+    width: 100%;
+    height: auto;
+    
+    /* Difuminado en la parte inferior */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);
+    
+    /* Asegura compatibilidad con navegadores */
+    -webkit-mask-size: cover;
+    mask-size: cover;
+}
+ul a{
+    color: #000000;
+}
+.enlace-info a{
+    color: rgb(54, 3, 3);
+}
+
+       
+
+    </style>
+</head>
+<body>
+    <div class="responsive-pc">
+        <nav>
+            <div class="nav-izquierda">
+                <button onclick="location.href='index.html#personajes'" class="menu-button">Volver</button>
+                <button class="menu-button" onclick="toggleMenu()">Menú</button>
+                
+                <button onclick="location.href='index.html#personajes'">Volver principal</button>
+                <button onclick="location.href='#seccion1'">Facción</button>
+                <button onclick="location.href='#seccion2'">Ellen</button>
+                <button onclick="location.href='#seccion3'">Corin</button>
+                <button onclick="location.href='#seccion4'">Lycaon</button>
+                <button onclick="location.href='#seccion5'">Alexandrina</button>
+
+                <div class="extra-buttons">
+                    <a href="#seccion2">Ellen</a>
+                    <a href="#seccion3">Corin</a>
+                    <a href="#seccion4">Lycaon</a>
+                    <a href="#seccion5">Alexandrina</a>
+                </div>
+            </div>
+        
+            <div class="nav-derecha">
+                <a href="https://zenless.hoyoverse.com/es-es/main" target="_blank"><img src="logo.1e072ee.png" class="imagen-logo" alt="Logo"></a>
+                <a href="https://www.facebook.com/ZZZ.Official.ES" target="_blank"><img src="facebook_2168281.png" class="icono-nav" alt="Facebook"></a>
+                <a href="https://www.instagram.com/zzz.official.en/" target="_blank"><img src="instagram_4494468.png" class="icono-nav" alt="Twitter"></a>
+                <a href="https://www.youtube.com/@ZZZ_Official" target="_blank"><img src="youtube_1384028.png" class="icono-nav" alt="Youtube"></a>
+            </div>
+            <script>
+            function toggleMenu() {
+                const menu = document.querySelector('.extra-buttons');
+                menu.classList.toggle('open');
+            }
+            function closeMenu() {
+                const menu = document.querySelector('.extra-buttons');
+                menu.classList.remove('open');
+            }
+            document.querySelectorAll('.extra-buttons a').forEach(option => {
+                option.addEventListener('click', closeMenu);
+            });
+            </script>
+        </nav>
+        
+        <header>
+            <h1><i><b>Servicios Domesticos Victoria</b></i></h1>
+        </header>
+    </div>
+    <div class="responsive">
+        
+        <center>
+        <section class="Galeria-de-personajes">
+            <img src="https://fastcdn.hoyoverse.com/content-v2/nap/113671/ac73015ad575dd0093228a46eebd79d9_2958400862293749083.png">
+            <img src="https://webstatic.hoyoverse.com/upload/op-public/2023/07/05/5913f027102b6c6850e398ce8bc49ea2_8235489470113492651.png">
+            <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102529/917769bb7c5ca0aa361512fe66a23e37_5218793726239055617.png">
+            <img src="https://fastcdn.hoyoverse.com/content-v2/nap/113612/aba218021520e66e0dcfac1114df4a71_8151821799162446072.png">
+        </section>
+    </center>
+        
+            <section id="seccion-info">
+                <div id="seccion1">
+                    <center>
+                        <h2>Acerca de la Facción</h2>
+                        <div class="info">
+                            <table>
+                                <tr>
+                                    <td><img src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/06/23/205556113/dd7a910468d56c01c1638f3890e46016_8627487660366793700.png?x-oss-process=image%2Fformat%2Cwebp" width="420px" height="280px"></td>
+                                    <td><img src="logo Servicios domesticos victoria.png" width="350px" height="280px"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                        <textarea cols="41" rows="4" style="overflow:auto; resize:none;">Servicios Domésticos Victoria: Agradecemos su preferencia por Servicios Domésticos Victoria. Sus deseos son órdenes.</textarea>
+                        <br><br><br><br>
+                        
+                        
+                        <div class="enlace-info">
+                        <a href="https://youtu.be/sEaj2-eZ718?si=VpD5WP-fyN1B6-ZI" target="_blank" >Escena de introducción de Servicios Domesticos Victoria <br>Zenless Zone Zero </a>
+                        <br><br><br><br>
+                        <a href="#"><h3>Menu</h3></a>
+                        </div>
+                        
+                    </center>
+                </div>
+            </section>
+        <section class="secciones" id="seccion2">
+            <br>
+            <div class="contenedor" >
+                <div class="personaje">
+                    <img src="https://fastcdn.hoyoverse.com/content-v2/nap/113671/ac73015ad575dd0093228a46eebd79d9_2958400862293749083.png" alt="Personaje" class="imagen-ver">
+                    <h2 >Ellen Joe</h2>
+                </div>
+                <div class="info-derecha">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	S<br><br>
+                            <b>Atributo: </b> Hielo<br><br>
+                            <b>Especialidad: </b> Ataque<br><br>
+                            <b>Facción: </b> Hijos de Calidón<br><br>
+                            <b>Obtención: </b> Gacha limitada<br><br>
+                            <b>Estadística básica: </b> Regeneración de energía<br><br>
+                        </p>
+                    </div>
+                    <div class="info-inferior">    
+                            <ul>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/464323#hl_2" target="_blank">Buil del personaje</a></li><br>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/464323#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                                <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+        </section>
+        <section class="secciones" id="seccion3">
+            <br>
+            <div class="contenedor">
+                <div class="info-izquierda">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	A<br><br>
+                            <b>Atributo: </b> Físico<br><br>
+                            <b>Especialidad: </b> Ataque<br><br>
+                            <b>Facción: </b> Servicios Domésticos Victoria<br><br>
+                            <b>Obtención: </b> Gacha / Gratis<br><br>
+                            <b>Estadística básica: </b> Daño Crítico<br><br>
+                        </p>
+                    </div>
+                <div class="info-inferior">   
+                    <ul>
+                        <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436885#hl_2" target="_blank">Buil del personaje</a></li><br>
+                        <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436885#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                        <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class="personaje">
+                    <h2>Corin Wickes</h2>
+                <img src="https://webstatic.hoyoverse.com/upload/op-public/2023/07/05/5913f027102b6c6850e398ce8bc49ea2_8235489470113492651.png" class="imagen-ver">
+                
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+        </section>
+        <section class="secciones" id="seccion4">
+            <br>
+            <div class="contenedor">
+                <div class="personaje">
+                    <img src="https://fastcdn.hoyoverse.com/content-v2/nap/102529/917769bb7c5ca0aa361512fe66a23e37_5218793726239055617.png" alt="Personaje" class="imagen-ver">
+                    <h2>Von Lycaon</h2>
+                </div>
+                <div class="info-derecha">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	S<br><br>
+                            <b>Atributo: </b> Hielo<br><br>
+                            <b>Especialidad: </b> Atudir<br><br>
+                            <b>Facción: </b> Servicios Domésticos Victoria<br><br>
+                            <b>Obtención: </b> Gacha<br><br>
+                            <b>Estadística básica: </b> Impacto<br><br>
+                        </p>
+                    </div>
+                    <div class="info-inferior">    
+                            <ul>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436884#hl_2" target="_blank">Buil del personaje</a></li><br>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436884#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                                <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+        </section>
+        
+        <section class="secciones" id="seccion5">
+            <br>
+            <div class="contenedor">
+                <div class="info-izquierda">
+                    <div class="info-superior">
+                        <center><h3>Informacion de Agente</h3></center>
+                        <p><b>Rareza: </b>	S<br><br>
+                            <b>Atributo: </b> Eléctrico<br><br>
+                            <b>Especialidad: </b> Apoyo<br><br>
+                            <b>Facción: </b> Servicios Domésticos Victoria<br><br>
+                            <b>Obtención: </b> Gacha<br><br>
+                            <b>Estadística básica: </b> PEN Ratio<br><br>
+                        </p>
+                    </div>
+                <div class="info-inferior">   
+                    <ul>
+                        <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436876#hl_2" target="_blank">Buil del personaje</a></li><br>
+                                <li><a href="https://game8.co/games/Zenless-Zone-Zero/archives/436876#hl_3" target="_blank">Equipos y Bangboo </a></li><br>
+                                <li><a href="index.html#Tier" target="_blank">Tier list</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class="personaje">
+                    <h2>Alexandrina</h2>
+                <img src="https://fastcdn.hoyoverse.com/content-v2/nap/113612/aba218021520e66e0dcfac1114df4a71_8151821799162446072.png" class="imagen-ver">
+                
+                </div>
+            </div>
+            <center><a href="#" id="menu"><h3>Menu</h3></a></center>
+        </section>
+        
+        <marquee>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3G142j-kv3NQ7RWrSpcLAFxHwbU7nrU69Q&s" height="180px" width="180px">
+            <img src="Personajes de galeria/alexandrina.jpeg" height="180px" width="250px">
+            <img src="https://assetsio.gnwcdn.com/Zenless-Zone-Zero-Ellen---build-header.jpeg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp" height="180px" width="180px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjYYau8G3PUQ77G_HPqsn_Xt1Mh9RRZFFy6A&s" height="180px" width="250px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7unP1dwNgwCwA3snF31_v9T4X8x2B3ikc7A&s" height="180px" width="250px">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Zj26-Zn43Bf-3T9YH0GkbBWVtj1uqDTrog&s" height="180px" width="250px">
+        </marquee>
+        
+    </div>
+</body>
+<footer class="responsive-pc">
+    <center>
+        
+    <p>
+        
+        <a href="https://www.facebook.com/share/1AayJJ8HzY/" target="_blank">
+            <img src="facebook_2168281.png" alt="Icono de Bogdan Rosu" class="icono-nav">
+        </a>
+        <a href="https://www.instagram.com/wwox.2i/profilecard/?igsh=ZHNraWt0a2piOXVh" target="_blank">
+            <img src="instagram_4494468.png" alt="Icono de riajulislam" class="icono-nav">
+        </a>
+        <a href="https://youtube.com/@henrybrandnmaydanavallejs8682?si=Q8XI_P7FgXuzpyYa" target="_blank">
+            <img src="youtube_1384028.png" alt="Icono de Freepik" class="icono-nav">
+        </a>
+        <br>
+        &copy; 2024 Página de Henry Maydana. Todos los derechos reservados.</p>
+</center>
+</footer>
